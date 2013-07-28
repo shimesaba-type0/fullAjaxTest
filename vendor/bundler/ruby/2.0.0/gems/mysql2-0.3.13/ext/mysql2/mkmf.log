@@ -1,0 +1,143 @@
+have_func: checking for rb_thread_blocking_region()... -------------------- yes
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(void) {return 0;}
+/* end */
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:6:1: 警告: ‘rb_thread_blocking_region’ は廃止されました (宣言位置 /home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/intern.h:830) [-Wdeprecated-declarations]
+conftest.c:6:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_wait_for_single_fd()... -------------------- yes
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:6:57: エラー: ‘rb_wait_for_single_fd’ が宣言されていません (この関数内での最初の使用)
+conftest.c:6:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:6:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:6:1: 警告: 関数 ‘rb_wait_for_single_fd’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { rb_wait_for_single_fd(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_dup()... -------------------- yes
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:6:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_dup; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_intern3()... -------------------- yes
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:6:57: エラー: ‘rb_intern3’ が宣言されていません (この関数内での最初の使用)
+conftest.c:6:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+conftest.c:6:32: 警告: 変数 ‘p’ が設定されましたが使用されていません [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_intern3; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -Wl,-R/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L. -L'/home/shimesaba/.rbenv/versions/2.0.0-p0/lib'  -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -L/home/shimesaba/.rbenv/versions/2.0.0-p0/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:6:1: 警告: 関数 ‘rb_intern3’ の暗黙的な宣言です [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { rb_intern3(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for mysql.h... -------------------- yes
+
+"gcc -E -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing  -g  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+/* end */
+
+--------------------
+
+have_header: checking for errmsg.h... -------------------- yes
+
+"gcc -E -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing  -g  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <errmsg.h>
+/* end */
+
+--------------------
+
+have_header: checking for mysqld_error.h... -------------------- yes
+
+"gcc -E -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/shimesaba/.rbenv/versions/2.0.0-p0/include/ruby-2.0.0 -I. -I'/home/shimesaba/.rbenv/versions/2.0.0-p0/include'    -I/usr/include/mysql -DBIG_JOINS=1  -fno-strict-aliasing  -g  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysqld_error.h>
+/* end */
+
+--------------------
+
